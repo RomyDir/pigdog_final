@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
-import 'login.dart';
 
 void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
@@ -12,15 +11,15 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: MyLoginPage(),
     );
   }
 }
-class MyHomePage extends StatefulWidget {
+class MyLoginPage extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _MyLoginPageState createState() => _MyLoginPageState();
 }
-class _MyHomePageState extends State<MyHomePage> {
+class _MyLoginPageState extends State<MyLoginPage> {
   bool showProgress = false;
   @override
   Widget build(BuildContext context) {
@@ -30,12 +29,12 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: ModalProgressHUD(
-          inAsyncCall:showProgress ,
+          inAsyncCall: showProgress,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                "Registration Page",
+                "Login Page",
                 style: TextStyle(fontWeight: FontWeight.w800, fontSize: 20.0),
               ),
               SizedBox(
@@ -70,17 +69,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Colors.lightBlue,
                 borderRadius: BorderRadius.circular(32.0),
                 child: MaterialButton(
-                  onPressed: () {
-//                  Navigator.push(
-//                    context,
-//                    MaterialPageRoute(builder: (context) => MyLoginPage()),
-//                  );
-                  },
+                  onPressed: () {},
                   minWidth: 200.0,
                   height: 45.0,
                   child: Text(
-                    "Register",
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20.0),
+                    "Login",
+                    style:
+                    TextStyle(fontWeight: FontWeight.w500, fontSize: 20.0),
                   ),
                 ),
               )
