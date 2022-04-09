@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "736273589528",
+    "project_id": "pigdog-66a76",
+    "storage_bucket": "pigdog-66a76.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736273589528:android:90587c7c5899600201aa6d",
+        "android_client_info": {
+          "package_name": "com.example.pigdog_final"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "736273589528-f2o52sbokurao920djkd7qpa2akg3t2f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pigdog_final",
+            "certificate_hash": "4f2c02366bc481fde6a909cab1901950bc8991c9"
+          }
+        },
+        {
+          "client_id": "736273589528-u8b1igdgfqhmjah1h3tidcujjql751o1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuc_PfiojtCK3MydduYB6v9u-ZHevwSNk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "736273589528-u8b1igdgfqhmjah1h3tidcujjql751o1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
