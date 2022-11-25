@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:pigdog_final/login_start/firebase_options.dart';
-import 'package:pigdog_final/home/homePage.dart';
+import 'package:pigdog_final/app_pages/homepage/homePage.dart';
 import 'package:pigdog_final/login_start/SignInPage.dart';
 import 'package:pigdog_final/login_start/signUpPage.dart';
 
