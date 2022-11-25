@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:adobe_xd/pinned.dart';
-import './header_box.dart';
-import './status_barlight.dart';
-import './button_small_not_pressed.dart';
-import './button_small_pressed.dart';
+import '../header_box.dart';
+import '../status_barlight.dart';
+import '../button_small_not_pressed.dart';
+import '../button_small_pressed.dart';
 import 'package:adobe_xd/page_link.dart';
-import './trainingsbox.dart';
+import '../trainingsbox.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 class HomePage extends StatefulWidget {
   @override

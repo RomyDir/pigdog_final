@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:pigdog_final/firebase_options.dart';
-import 'package:pigdog_final/homePage.dart';
-import 'package:pigdog_final/SignInPage.dart';
-import 'package:pigdog_final/signUpPage.dart';
+import 'package:pigdog_final/login_start/firebase_options.dart';
+import 'package:pigdog_final/home/homePage.dart';
+import 'package:pigdog_final/login_start/SignInPage.dart';
+import 'package:pigdog_final/login_start/signUpPage.dart';
 
 
 void main() async {
