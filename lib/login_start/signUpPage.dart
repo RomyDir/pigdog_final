@@ -1,52 +1,50 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class SignInPage extends StatefulWidget {
+class SignUpPage extends StatefulWidget {
   @override
-  _SignInPage createState() => _SignInPage();
+  _SignUpPage createState() => _SignUpPage();
 }
 
-class _SignInPage extends State<SignInPage> {
+class _SignUpPage extends State<SignUpPage> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final username = TextEditingController();
   final password = TextEditingController();
   BuildContext context;
 
-  checkCurrentUser() async {
-    _auth.authStateChanges().listen((User user) async {
+  checkAuthentication() async {
+    _auth.authStateChanges().listen((User user) {
       if (user != null) {
         Navigator.pushReplacementNamed(context, "/");
       }
     });
   }
 
-  void signIn() async {
-    try {
-      if (username.text != "" && password.text != "") {
-        UserCredential userCredential = await _auth.signInWithEmailAndPassword(
-            email: username.text, password: password.text);
-        print('SignIn: Sign in was successful.');
-        print(userCredential);
-      } else {
-        print('SignIn: Username or password is missing.');
-      }
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        print('SignIn: No user found for that email.');
-      } else if (e.code == 'wrong-password') {
-        print('SignIn: Wrong password provided for that user.');
-      }
-    }
+  toSignIn() async {
+    Navigator.pushReplacementNamed(context, "/SignInPage");
   }
 
-  toSignUp() async {
-    Navigator.pushReplacementNamed(context, "/SignUpPage");
+  void signUp() async {
+    try {
+      UserCredential userCredential =
+      await _auth.createUserWithEmailAndPassword(
+          email: username.text, password: password.text);
+      print(userCredential);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        print('The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        print('The account already exists for that email.');
+      }
+    } catch (e) {
+      print(e);
+    }
   }
 
   @override
   void initState() {
     super.initState();
-    this.checkCurrentUser();
+    this.checkAuthentication();
   }
 
   @override
@@ -57,7 +55,7 @@ class _SignInPage extends State<SignInPage> {
   }
 
   @override
-  Widget build(context) {
+  Widget build(BuildContext context) {
     setState(() => this.context = context);
     return Scaffold(
       body: Container(
@@ -74,7 +72,7 @@ class _SignInPage extends State<SignInPage> {
                 obscureText: false,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  hintText: 'E-mail/Username',
+                  hintText: 'E-mail',
                 ),
               ),
               TextField(
@@ -85,21 +83,21 @@ class _SignInPage extends State<SignInPage> {
                   hintText: 'Password',
                 ),
               ),
-              RaisedButton(
+              ElevatedButton(
                 onPressed: () {
-                  signIn();
+                  signUp();
                 },
                 child: Center(
-                  child: Text('Sign-in'),
+                  child: Text('Sign-Up'),
                 ),
               ),
-              Text("Do you have an account? If you don't, please sign up!"),
+              Text("I have an account! Go back and sign in!"),
               GestureDetector(
                 onTap: () {
-                  toSignUp();
+                  toSignIn();
                 },
                 child: Text(
-                  "Sign Up!",
+                  "Sign In!",
                   style: TextStyle(color: Colors.blue),
                 ),
               ),
