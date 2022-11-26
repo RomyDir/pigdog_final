@@ -85,14 +85,14 @@ class _SignInPage extends State<SignInPage> {
                   hintText: 'Password',
                 ),
               ),
-              RaisedButton(
-                onPressed: () {
-                  signIn();
-                },
-                child: Center(
-                  child: Text('Sign-in'),
+                ElevatedButton(
+                  onPressed: () {
+                    signIn();
+                  },
+                  child: Center(
+                    child: Text('Sign-in'),
+                  ),
                 ),
-              ),
               Text("Do you have an account? If you don't, please sign up!"),
               GestureDetector(
                 onTap: () {

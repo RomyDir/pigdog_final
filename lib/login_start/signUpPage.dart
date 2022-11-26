@@ -83,7 +83,7 @@ class _SignUpPage extends State<SignUpPage> {
                   hintText: 'Password',
                 ),
               ),
-              RaisedButton(
+              ElevatedButton(
                 onPressed: () {
                   signUp();
                 },
