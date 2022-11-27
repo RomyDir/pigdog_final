@@ -41,3 +41,5 @@ class Home extends StatelessWidget {
     );
   }
 }
+
+//TODO add chat from https://github.com/JohannesMilke/firebase_chat_example/tree/master/lib main.dart

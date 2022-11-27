@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class SignInPage extends StatefulWidget {
+  const SignInPage({Key key}) : super(key: key);
   @override
-  _SignInPage createState() => _SignInPage();
+  State<SignInPage> createState() => _SignInPageState();
 }
 
-class _SignInPage extends State<SignInPage> {
+class _SignInPageState extends State<SignInPage> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final username = TextEditingController();
   final password = TextEditingController();
