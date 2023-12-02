@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:pigdog_final/login_start/firebase_options.dart';
-import 'package:pigdog_final/app_pages/homepage/homePage.dart';
+import 'package:pigdog_final/app_pages/homepage/home_page.dart';
 import 'package:pigdog_final/login_start/SignInPage.dart';
 import 'package:pigdog_final/login_start/signUpPage.dart';
+import 'package:pigdog_final/app_pages/homepage/home_page.dart';
+import 'package:pigdog_final/app_pages/pigdogs/pigdogs.dart';
+import 'package:pigdog_final/app_pages/profile/profile.dart';
 
 
 void main() async {
@@ -28,6 +31,9 @@ class Home extends StatelessWidget {
   routes: <String, WidgetBuilder>{
   "/SignInPage": (BuildContext context) => SignInPage(),
   "/SignUpPage": (BuildContext context) => SignUpPage(),
+  "/Pigdogs": (BuildContext context) => Pigdogs(),
+  "/Profile": (BuildContext context) => Profile()
+
   },
   );
   }

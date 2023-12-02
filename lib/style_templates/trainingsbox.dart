@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
 class XDTrainingsbox extends StatelessWidget {
+  final String imageUrl; // Add this line
+
   XDTrainingsbox({
     Key key,
+    this.imageUrl, // Add this line
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -41,6 +45,16 @@ class XDTrainingsbox extends StatelessWidget {
           decoration: BoxDecoration(
             color: const Color(0xffffffff),
             borderRadius: BorderRadius.circular(31.0),
+          ),
+        ),
+        // Add your image inside the stack
+        Positioned.fill(  // Use Positioned.fill to ensure the image covers the entire container
+          child: ClipRRect( // Clip the image to the border radius
+            borderRadius: BorderRadius.circular(31.0),
+            child: Image.network(
+              imageUrl,
+              fit: BoxFit.cover, // This ensures the image covers the box area
+            ),
           ),
         ),
       ],
