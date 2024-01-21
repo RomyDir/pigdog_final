@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../admin_pages/training_box_data.dart';
 import '../../admin_pages/collectables.dart';
 import '../../style_templates/image_carousel.dart';
+import '../../multiuse_style_templates/bottom_navigation_bar.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -26,9 +27,8 @@ class _HomePageState extends State<HomePage> {
           // Collectable display and interaction goes here
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: CustomBottomNavigationBar(),
         // Navigation bar items go here
-      ),
     );
   }
 }

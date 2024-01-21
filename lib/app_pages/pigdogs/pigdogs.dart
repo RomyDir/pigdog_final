@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pigdog_final/multiuse_style_templates/bottom_navigation_bar.dart';
 
 class Pigdogs extends StatelessWidget {
   // List of hardcoded friend names
@@ -39,6 +40,7 @@ class Pigdogs extends StatelessWidget {
           );
         },
       ),
+      bottomNavigationBar: CustomBottomNavigationBar(),
     );
   }
 }

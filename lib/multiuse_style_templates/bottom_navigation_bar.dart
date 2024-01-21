@@ -1,69 +1,77 @@
 import 'package:flutter/material.dart';
-import '/../app_pages/pigdogs/pigdogs.dart';
-import '/../app_pages/homepage/home_page.dart';
-import '/../app_pages/profile/profile.dart';
+import '/app_pages/pigdogs/pigdogs.dart';
+import '/app_pages/homepage/home_page.dart';
+import '/app_pages/profile/profile.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
-  //TODO: add here the buttons that change style when you are on the active page - looks like clicked style
-  //final int currentIndex;
-  //final Function(int) onItemSelected;
-  //add here the buttons that change style when you are on the active page - looks like clicked style
-  // CustomBottomNavigationBar({
-    // required this.currentIndex,
-    //required this.onItemSelected,
-  // });
-
   @override
   _CustomBottomNavigationBarState createState() => _CustomBottomNavigationBarState();
 }
 
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
-  int _currentIndex = 1; // initial Index
-  
+  int _currentIndex = 1; // initial index
+
   void _onItemTapped(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
-    
-    switch (index) {
-      case 0:
-        Navigator.push(context, MaterialPageRoute(builder: (context) => Pigdogs()));
-        break;
-      case 1:
-        Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
-        break;
-      case 2:
-        Navigator.push(context, MaterialPageRoute(builder: (context) => Profile()));
-        break;
+    if (_currentIndex == index) { // Check if the new index is different from the current index
+      return;
     }
+      setState(() {
+        _currentIndex = index;
+      });
+      // Navigate to the selected page
+      Future.delayed(Duration.zero, (){
+      switch (index) {
+        case 0:
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => Pigdogs()));
+          break;
+        case 1:
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => HomePage()));
+          break;
+        case 2:
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => Profile()));
+          break;
+      }
+    });
+  }
+
+  Widget _buildIcon(String iconName, bool isActive) {
+    String buttonImage = isActive ? 'button_small_active.png' : 'button_small.png';
+    String iconImage = iconName + (isActive ? '_active.png' : '.png');
+
+    // Ensuring that images have constraints if they do not have intrinsic size
+    return SizedBox(
+      width: 30, // Set the size of the button
+      height: 30,
+      child: Stack(
+        alignment: Alignment.center,
+        children: <Widget>[
+          Image.asset('assets/icons/$buttonImage'), // Button background
+          Image.asset('assets/icons/$iconImage'), // Icon
+        ],
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-
-    //Debugging: Print the curretn index to the console
-    print("Current NavBar index= $_currentIndex");
-
     return BottomNavigationBar(
       currentIndex: _currentIndex, // Using the current index
       onTap: _onItemTapped, // Function to handle item tap
       items: [
-        // These items should always be non-null
         BottomNavigationBarItem(
-          icon: Icon(Icons.group),
+          icon: _buildIcon('pigdogs', _currentIndex == 0),
           label: 'Pigdogs',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: 'Homepage',
+          icon: _buildIcon('home', _currentIndex == 1),
+          label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.person),
+          icon: _buildIcon('profile', _currentIndex == 2),
           label: 'Profile',
         ),
       ],
-
-      selectedItemColor: Colors.blue, // Color for the selected item
+      selectedItemColor: Colors.grey[800], // Color for the selected item
       unselectedItemColor: Colors.grey, // Color for the unselected items
       showUnselectedLabels: true, // Whether the labels of unselected items are shown
     );
